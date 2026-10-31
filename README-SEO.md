@@ -11,7 +11,7 @@
    git remote add origin https://github.com/USERNAME/REPOSITORY.git
    git push -u origin main
    ```
-3. في GitHub افتح **Settings → Pages**، واجعل **Build and deployment → Source** على **GitHub Actions**.
+3. في GitHub افتح **Settings → Pages**، واجعل **Build and deployment → Source** على **GitHub Actions**. إذا بدأ سير العمل قبل تفعيل Pages وفشل، أعد تشغيله من تبويب **Actions** بعد تغيير المصدر.
 4. انتظر نجاح مهمة **Deploy site to GitHub Pages** من تبويب **Actions**. رابط العرض سيكون:
    `https://USERNAME.github.io/REPOSITORY/`
    (إذا كان اسم المستودع `USERNAME.github.io` فالرابط يكون `https://USERNAME.github.io/`).
