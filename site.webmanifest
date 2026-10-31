@@ -1,0 +1,14 @@
+{
+  "name": "محيط الراحة للاستقدام",
+  "short_name": "محيط الراحة",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": "__PAGES_BASE_PATH__/",
+  "display": "browser",
+  "theme_color": "#3b5bdb",
+  "background_color": "#ffffff",
+  "icons": [
+    { "src": "images/favicon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "images/favicon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

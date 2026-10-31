@@ -1,0 +1,6 @@
+# robots.txt — استبدل YOUR-DOMAIN.com بدومينك
+User-agent: *
+Allow: /
+Disallow: /404.html
+
+Sitemap: https://YOUR-DOMAIN.com/sitemap.xml

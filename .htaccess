@@ -1,0 +1,37 @@
+# ============ إعدادات الاستضافة (Hostinger / Apache / LiteSpeed) ============
+# 1) تحويل كل الزيارات إلى HTTPS (فعّل شهادة SSL من لوحة هوستنجر أولاً)
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+# 2) (اختياري) توحيد الدومين بدون www — أزل # من السطرين بعد استبدال الدومين
+# RewriteCond %{HTTP_HOST} ^www\.YOUR-DOMAIN\.com$ [NC]
+# RewriteRule ^(.*)$ https://YOUR-DOMAIN.com/$1 [R=301,L]
+
+# 3) صفحة الخطأ 404
+ErrorDocument 404 /404.html
+
+# 4) الضغط لتسريع التحميل
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json application/xml image/svg+xml
+</IfModule>
+
+# 5) التخزين المؤقت (الصور سنة، css/js شهر — غيّر ?v=1 في index.html عند تعديلهما)
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/x-icon "access plus 1 year"
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+
+# 6) رؤوس الأمان
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+</IfModule>
